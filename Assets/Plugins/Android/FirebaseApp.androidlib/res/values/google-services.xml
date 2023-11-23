@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id,@string/default_android_client_id,@string/default_web_client_id">
+  <string name="gcm_defaultSenderId" translatable="false">531598773011</string>
+  <string name="google_storage_bucket" translatable="false">pruebatecnicabw.appspot.com</string>
+  <string name="project_id" translatable="false">pruebatecnicabw</string>
+  <string name="google_api_key" translatable="false">AIzaSyDZdZdrqsXXQhr9yaO0Bb-7TrFSu0QnT9c</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDZdZdrqsXXQhr9yaO0Bb-7TrFSu0QnT9c</string>
+  <string name="google_app_id" translatable="false">1:531598773011:android:646d4f7b63df76b91a68e6</string>
+  <string name="default_android_client_id" translatable="false">531598773011-sn36q43lot0d62uhqggf3e7irjqr82g7.apps.googleusercontent.com</string>
+  <string name="default_web_client_id" translatable="false">531598773011-inhf44skdjt9nphjv5ghqtlafgdt57ri.apps.googleusercontent.com</string>
+</resources>

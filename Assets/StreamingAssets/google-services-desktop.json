@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "531598773011",
+    "project_id": "pruebatecnicabw",
+    "storage_bucket": "pruebatecnicabw.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:531598773011:android:646d4f7b63df76b91a68e6",
+        "android_client_info": {
+          "package_name": "com.peryloth.pruebatecnica"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "531598773011-sn36q43lot0d62uhqggf3e7irjqr82g7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.peryloth.pruebatecnica",
+            "certificate_hash": "65c0f70db2e49e069e63978badc5693fcd43fdb7"
+          }
+        },
+        {
+          "client_id": "531598773011-inhf44skdjt9nphjv5ghqtlafgdt57ri.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZdZdrqsXXQhr9yaO0Bb-7TrFSu0QnT9c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "531598773011-inhf44skdjt9nphjv5ghqtlafgdt57ri.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "531598773011-elmffgpk2e52o13ifllsjnhpg42ahva9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.peryloth.pruebatecnica"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
