@@ -18,4 +18,9 @@ public abstract class Evaluators : MonoBehaviour
     {
         return nextScreenPlay.Id;
     }
+
+    public virtual void Config()
+    {
+        
+    }
 }

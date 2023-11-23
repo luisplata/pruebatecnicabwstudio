@@ -3,7 +3,7 @@ using UnityEngine;
 public abstract class ScreenPlay : MonoBehaviour
 {
     [SerializeField] private ScreenPlayIdentity _id;
-    [SerializeField] private Evaluators[] evaluators;
+    [SerializeField] protected Evaluators[] evaluators;
     protected ScreenPlayIdentity _nextScreenPlay;
     protected Evaluators _currentEvaluator;
 

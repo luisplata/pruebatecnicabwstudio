@@ -10,15 +10,6 @@ public abstract class SelectOptionsElements : MonoBehaviour
     protected List<string> _options;
     public event Action<string> onValueChanged;
 
-    protected virtual void OnEnable()
-    {
-        dropdown.ClearOptions();
-        _options = AddOptionsCustom();
-        dropdown.AddOptions(AddOptionsCustom());
-        dropdown.onValueChanged.AddListener(OnValueChanged);
-        OnValueChanged(0);
-    }
-
     protected abstract List<string> AddOptionsCustom();
 
     private void OnValueChanged(int arg0)
@@ -29,5 +20,14 @@ public abstract class SelectOptionsElements : MonoBehaviour
         Debug.Log($"Option selected: {_options[arg0]}");
         textAfter.text = _options[indexAfter];
         onValueChanged?.Invoke(_options[arg0]);
+    }
+
+    public virtual void Config()
+    {
+        dropdown.ClearOptions();
+        _options = AddOptionsCustom();
+        dropdown.AddOptions(AddOptionsCustom());
+        dropdown.onValueChanged.AddListener(OnValueChanged);
+        OnValueChanged(0);
     }
 }

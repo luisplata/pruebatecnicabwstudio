@@ -17,7 +17,7 @@ public class SelectionOfProfileData : Evaluators
 
     public override bool IsFinished()
     {
-        return colorButton.IsFinished() && _changeNickname;
+        return colorButton.IsFinished() && (_changeNickname || inputField.text.Length > 0);
     }
 
     public override string GetData()

@@ -10,9 +10,23 @@ public class SelectionOfOptions : ScreenPlay
     {
         button.onClick.AddListener(() =>
         {
+            if(_currentEvaluator == null)
+            {
+                Debug.Log($"Select any option");
+                return;
+            }
             _isFinished = true;
-            Debug.Log($"option selected: {(_currentEvaluator != null ? _currentEvaluator.GetData() : "None")}");
+            Debug.Log($"option selected: {_currentEvaluator.GetData()}");
         });
+    }
+
+    public override void Config()
+    {
+        base.Config();
+        foreach (var evaluator in evaluators)
+        {
+            evaluator.Config();
+        }
     }
 
     public override void Doing()
