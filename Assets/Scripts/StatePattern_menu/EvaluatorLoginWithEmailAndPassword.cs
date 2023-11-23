@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EvaluatorSignInWithEmail : Evaluators
+public class EvaluatorLoginWithEmailAndPassword : Evaluators
 {
     [SerializeField] private Button signInButton, showHidePasswordButton;
     [SerializeField] private TMP_InputField emailInputField;
@@ -26,7 +26,7 @@ public class EvaluatorSignInWithEmail : Evaluators
     {
         
         Debug.Log("Contraseña ingresada: " + pass);
-        ServiceLocator.Instance.GetService<IFireBaseService>().CreateUser(email, pass, () =>
+        ServiceLocator.Instance.GetService<IFireBaseService>().Login(email, pass, () =>
         {
             _isFinished = true;
             Debug.Log("Success Create User");

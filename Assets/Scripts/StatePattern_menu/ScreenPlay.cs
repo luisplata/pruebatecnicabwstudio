@@ -45,7 +45,12 @@ public abstract class ScreenPlay : MonoBehaviour
 
     public virtual void ResetData()
     {
-        
+        _currentEvaluator = null;
+        _nextScreenPlay = null;
+        foreach (var evaluator in evaluators)
+        {
+            evaluator.ResetData();
+        }
     }
 
     public ScreenPlayIdentity NextScreenPlay()

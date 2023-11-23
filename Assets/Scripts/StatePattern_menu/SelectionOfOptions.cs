@@ -12,7 +12,7 @@ public class SelectionOfOptions : ScreenPlay
         {
             if(_currentEvaluator == null)
             {
-                Debug.Log($"Select any option");
+                //Debug.Log($"Select any option");
                 return;
             }
             _isFinished = true;
