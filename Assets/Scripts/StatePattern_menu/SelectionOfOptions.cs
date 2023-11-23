@@ -20,15 +20,6 @@ public class SelectionOfOptions : ScreenPlay
         });
     }
 
-    public override void Config()
-    {
-        base.Config();
-        foreach (var evaluator in evaluators)
-        {
-            evaluator.Config();
-        }
-    }
-
     public override void Doing()
     {
         

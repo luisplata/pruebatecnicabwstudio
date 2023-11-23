@@ -16,9 +16,12 @@ public abstract class ScreenPlay : MonoBehaviour
         }
     }
 
-    public virtual void Config()
+    public void Config()
     {
-        
+        foreach (var evaluator in evaluators)
+        {
+            evaluator.Config();
+        }
     }
 
     public abstract void Doing();
