@@ -36,9 +36,9 @@ public class StatePattern : MonoBehaviour
         
         _finish = this.tt().Pause().Add(() =>
         {
-            _currentScreenPlay.ResetData();
             _currentScreenPlay.gameObject.SetActive(false);
             _currentScreenPlay = _screenPlays[_currentScreenPlay.NextScreenPlay().Id];
+            _currentScreenPlay.ResetData();
             _prepare.Restart();
         });
         

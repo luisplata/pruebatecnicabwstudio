@@ -17,7 +17,7 @@ public abstract class SelectOptionsElements : MonoBehaviour
         var indexBefore = arg0 <= 0 ? _options.Count - 1 : arg0 - 1;
         var indexAfter = arg0 >= _options.Count - 1 ? 0 : arg0 + 1;
         textBefore.text = _options[indexBefore];
-        Debug.Log($"Option selected: {_options[arg0]}");
+        //Debug.Log($"Option selected: {_options[arg0]}");
         textAfter.text = _options[indexAfter];
         onValueChanged?.Invoke(_options[arg0]);
     }

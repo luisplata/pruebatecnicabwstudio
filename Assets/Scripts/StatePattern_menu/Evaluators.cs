@@ -23,4 +23,9 @@ public abstract class Evaluators : MonoBehaviour
     {
         
     }
+
+    public void ResetData()
+    {
+        _isFinished = false;
+    }
 }
