@@ -24,8 +24,6 @@ public class EvaluatorLoginWithEmailAndPassword : Evaluators
 
     private void StartSignIn(string email, string pass)
     {
-        
-        Debug.Log("Contraseña ingresada: " + pass);
         ServiceLocator.Instance.GetService<IFireBaseService>().Login(email, pass, () =>
         {
             _isFinished = true;
