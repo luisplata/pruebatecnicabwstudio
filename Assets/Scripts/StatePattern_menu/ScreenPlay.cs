@@ -16,9 +16,12 @@ public abstract class ScreenPlay : MonoBehaviour
         }
     }
 
-    public virtual void Config()
+    public void Config()
     {
-        
+        foreach (var evaluator in evaluators)
+        {
+            evaluator.Config();
+        }
     }
 
     public abstract void Doing();
@@ -42,7 +45,12 @@ public abstract class ScreenPlay : MonoBehaviour
 
     public virtual void ResetData()
     {
-        
+        _currentEvaluator = null;
+        _nextScreenPlay = null;
+        foreach (var evaluator in evaluators)
+        {
+            evaluator.ResetData();
+        }
     }
 
     public ScreenPlayIdentity NextScreenPlay()

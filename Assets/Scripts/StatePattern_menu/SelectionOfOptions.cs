@@ -12,21 +12,12 @@ public class SelectionOfOptions : ScreenPlay
         {
             if(_currentEvaluator == null)
             {
-                Debug.Log($"Select any option");
+                //Debug.Log($"Select any option");
                 return;
             }
             _isFinished = true;
             Debug.Log($"option selected: {_currentEvaluator.GetData()}");
         });
-    }
-
-    public override void Config()
-    {
-        base.Config();
-        foreach (var evaluator in evaluators)
-        {
-            evaluator.Config();
-        }
     }
 
     public override void Doing()

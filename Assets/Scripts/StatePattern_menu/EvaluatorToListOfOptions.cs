@@ -10,7 +10,7 @@ public class EvaluatorToListOfOptions : EvaluatorsWithButton
         base.Config();
         optionsElementsInt.onValueChanged += option =>
         {
-            Debug.Log($"option selected in action: {option}");
+            //Debug.Log($"option selected in action: {option}");
             _option = option;
             _isFinished = true;
         };
