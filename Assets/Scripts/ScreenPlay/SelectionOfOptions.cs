@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class SelectionOfOptions : ScreenPlay
 {
     [SerializeField] private Button button;
     private bool _isFinished;
+    private bool _wasFinished;
     
     private void OnEnable()
     {
@@ -15,7 +17,7 @@ public class SelectionOfOptions : ScreenPlay
                 //Debug.Log($"Select any option");
                 return;
             }
-            _isFinished = true;
+            _isFinished = _currentEvaluator.IsFinished();
             Debug.Log($"option selected: {_currentEvaluator.GetData()}");
         });
     }

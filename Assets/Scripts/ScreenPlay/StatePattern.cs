@@ -7,7 +7,7 @@ public class StatePattern : MonoBehaviour
     [SerializeField] private ScreenPlayIdentity firstScreenPlay;
     [SerializeField] private TransitionScreenPlay transitionScreenPlay;
     private Dictionary<string, ScreenPlay> _screenPlays;
-    private TeaTime _prepare, _doing, _finish;
+    private TeaTime _firstScreen, _prepare, _doing, _finish;
     private ScreenPlay _currentScreenPlay;
 
     void Start()
@@ -19,6 +19,18 @@ public class StatePattern : MonoBehaviour
         }
 
         _currentScreenPlay = _screenPlays[firstScreenPlay.Id];
+
+        _firstScreen = this.tt().Pause().Add(() =>
+            {
+                transitionScreenPlay.TransitionOn(_currentScreenPlay, 0.2f);
+                _currentScreenPlay.Config();
+            })
+            .Wait(() => transitionScreenPlay.IsFinish(), 0.1f)
+            .Add(() =>
+            {
+                _currentScreenPlay.Doing();
+                _doing.Play();
+            });
 
         _prepare = this.tt().Pause().Add(() =>
             {
@@ -49,6 +61,6 @@ public class StatePattern : MonoBehaviour
                 _prepare.Restart();
             });
 
-        _prepare.Play();
+        _firstScreen.Play();
     }
 }
