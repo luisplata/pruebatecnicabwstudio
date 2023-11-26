@@ -8,6 +8,8 @@ public class EvaluatorSignInWithEmail : Evaluators
     [SerializeField] private Button signInButton, showHidePasswordButton;
     [SerializeField] private TMP_InputField emailInputField;
     [SerializeField] private TMP_InputField passwordInputField;
+    [SerializeField] private Sprite showPassword, hidePassword;
+    private Image _imageShowHidePassword;
 
     public override void Config()
     {
@@ -20,6 +22,8 @@ public class EvaluatorSignInWithEmail : Evaluators
         {
             ShowPassword(passwordInputField.contentType == TMP_InputField.ContentType.Password);
         });
+        _imageShowHidePassword = showHidePasswordButton.GetComponent<Image>();
+        _imageShowHidePassword.sprite = showPassword;
     }
 
     private void StartSignIn(string email, string pass)
@@ -40,5 +44,6 @@ public class EvaluatorSignInWithEmail : Evaluators
     {
         passwordInputField.contentType = show ? TMP_InputField.ContentType.Standard : TMP_InputField.ContentType.Password;
         passwordInputField.ForceLabelUpdate();
+        _imageShowHidePassword.sprite = show ? hidePassword : showPassword;
     }
 }

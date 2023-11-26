@@ -1,7 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 
-public class SelectionOfProfileData : Evaluators
+public class SelectionOfProfileData : EvaluatorsWithButton
 { 
     [SerializeField] private EvaluatorsWithColorButton colorButton;
     [SerializeField] private TMP_InputField inputField;
@@ -12,7 +12,26 @@ public class SelectionOfProfileData : Evaluators
         inputField.onEndEdit.AddListener(value =>
         {
             _changeNickname = value.Length > 0;
+            if (_changeNickname && colorButton.IsFinished())
+            {
+                BounceAnimation();
+            }
+            else
+            {
+                _wasFinished = false;
+            }
         });
+        colorButton.onClick += () =>
+        {
+            if (_changeNickname && colorButton.IsFinished())
+            {
+                BounceAnimation();
+            }
+            else
+            {
+                _wasFinished = false;
+            }
+        };
     }
 
     public override bool IsFinished()

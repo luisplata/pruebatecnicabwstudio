@@ -5,14 +5,16 @@ using UnityEngine.UI;
 
 public class EvaluatorLoginWithEmailAndPassword : Evaluators
 {
-    [SerializeField] private Button signInButton, showHidePasswordButton;
+    [SerializeField] private Button button, showHidePasswordButton;
     [SerializeField] private TMP_InputField emailInputField;
     [SerializeField] private TMP_InputField passwordInputField;
+    [SerializeField] private Sprite showPassword, hidePassword;
+    private Image _imageShowHidePassword;
 
     public override void Config()
     {
         base.Config();
-        signInButton.onClick.AddListener(() =>
+        button.onClick.AddListener(() =>
         {
             StartSignIn(emailInputField.text, passwordInputField.text);
         });
@@ -20,6 +22,8 @@ public class EvaluatorLoginWithEmailAndPassword : Evaluators
         {
             ShowPassword(passwordInputField.contentType == TMP_InputField.ContentType.Password);
         });
+        _imageShowHidePassword = showHidePasswordButton.GetComponent<Image>();
+        _imageShowHidePassword.sprite = showPassword;
     }
 
     private void StartSignIn(string email, string pass)
@@ -38,5 +42,6 @@ public class EvaluatorLoginWithEmailAndPassword : Evaluators
     {
         passwordInputField.contentType = show ? TMP_InputField.ContentType.Standard : TMP_InputField.ContentType.Password;
         passwordInputField.ForceLabelUpdate();
+        _imageShowHidePassword.sprite = show ? hidePassword : showPassword;
     }
 }
