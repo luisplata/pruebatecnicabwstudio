@@ -17,6 +17,7 @@ public class EvaluatorToLoginWithGoogle : Evaluators
 
     private void StartSignIn(string email, string pass)
     {
+        ServiceLocator.Instance.GetService<IFireBaseService>().UseGoogle();
         ServiceLocator.Instance.GetService<IFireBaseService>().Login(email, pass, () =>
         {
             _isFinished = true;
