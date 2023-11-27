@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class EvaluatorsWithColorButton : EvaluatorsWithButton
 {
+    public Action onClick;
     [SerializeField] private EvaluatorButtonColor[] buttons;
     [SerializeField] private Image colorSelected;
     private Color _option;
@@ -17,6 +19,7 @@ public class EvaluatorsWithColorButton : EvaluatorsWithButton
                 _option = option;
                 colorSelected.color = option;
                 _isFinished = true;
+                onClick?.Invoke();
             };
         }
     }

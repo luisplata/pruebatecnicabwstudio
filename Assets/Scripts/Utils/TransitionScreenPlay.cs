@@ -7,8 +7,12 @@ public class TransitionScreenPlay : MonoBehaviour
     [SerializeField] private float duration;
     private bool _finishedTransition;
 
-    public void TransitionOn(ScreenPlay currentScreenPlay)
+    public void TransitionOn(ScreenPlay currentScreenPlay, float time = 0)
     {
+        if(time == 0)
+        {
+            time = duration;
+        }
         currentScreenPlay.gameObject.SetActive(true);
         // Obtener las posiciones iniciales y finales de los RectTransform
         Vector2 startPos = beginWaypoint.anchoredPosition;
@@ -18,7 +22,7 @@ public class TransitionScreenPlay : MonoBehaviour
         currentScreenPlay.GetComponent<RectTransform>().anchoredPosition = startPos;
 
         // Mover el RectTransform del punto de inicio al punto final durante 'duration' segundos con easing
-        currentScreenPlay.GetComponent<RectTransform>().DOAnchorPos(endPos, duration).SetEase(Ease.OutQuad)
+        currentScreenPlay.GetComponent<RectTransform>().DOAnchorPos(endPos, time).SetEase(Ease.OutQuad)
             .OnComplete(() => OnTransitionComplete(currentScreenPlay.gameObject));
     }
     
@@ -31,8 +35,12 @@ public class TransitionScreenPlay : MonoBehaviour
     {
         return _finishedTransition;
     }
-    public void TransitionOff(ScreenPlay currentScreenPlay)
+    public void TransitionOff(ScreenPlay currentScreenPlay, float time = 0)
     {
+        if(time == 0)
+        {
+            time = duration;
+        }
         // Obtener las posiciones iniciales y finales de los RectTransform
         Vector2 startPos = centerWaypoint.anchoredPosition;
         Vector2 endPos = endWaypoint.anchoredPosition;
@@ -41,7 +49,7 @@ public class TransitionScreenPlay : MonoBehaviour
         currentScreenPlay.GetComponent<RectTransform>().anchoredPosition = startPos;
 
         // Mover el RectTransform del punto de inicio al punto final durante 'duration' segundos con easing
-        currentScreenPlay.GetComponent<RectTransform>().DOAnchorPos(endPos, duration).SetEase(Ease.OutQuad)
+        currentScreenPlay.GetComponent<RectTransform>().DOAnchorPos(endPos, time).SetEase(Ease.OutQuad)
             .OnComplete(() => DeactivateObject(currentScreenPlay.gameObject));
     }
 
