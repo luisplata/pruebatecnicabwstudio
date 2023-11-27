@@ -2064,8 +2064,8 @@ MonoBehaviour:
   - Enero
   - Febrero
   - Marzo
-  - Abril
   - Mayo
+  - Abril
   - Junio
   - Julio
   - Agosto
@@ -7365,6 +7365,7 @@ GameObject:
   - component: {fileID: 747594179}
   - component: {fileID: 747594180}
   - component: {fileID: 747594181}
+  - component: {fileID: 747594182}
   m_Layer: 5
   m_Name: ConfirmSingup
   m_TagString: Untagged
@@ -7421,6 +7422,7 @@ MonoBehaviour:
   _id: {fileID: 11400000, guid: 2af9c808279ce7f47b27debbe4626b8f, type: 2}
   evaluators:
   - {fileID: 747594181}
+  - {fileID: 747594182}
 --- !u!114 &747594181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7441,6 +7443,23 @@ MonoBehaviour:
   passwordInputField: {fileID: 1081378219}
   showPassword: {fileID: 21300000, guid: 70a267ff89020584b9b9601b8a2550f1, type: 3}
   hidePassword: {fileID: 21300000, guid: 69e1c6cb84736404ea12a4784bb0c667, type: 3}
+  onFailLogin: {fileID: 11400000, guid: 15c80dcf7959640408973686655c1ea7, type: 2}
+--- !u!114 &747594182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747594177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e49acf3f57764deb9f346402c9738503, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextScreenPlay: {fileID: 11400000, guid: c2dd6b5f6d912324995f161a772f817c, type: 2}
+  _isFinished: 0
+  signInButton: {fileID: 798322915}
+  onFailLogin: {fileID: 11400000, guid: 15c80dcf7959640408973686655c1ea7, type: 2}
 --- !u!1 &749402154
 GameObject:
   m_ObjectHideFlags: 0
@@ -13831,8 +13850,7 @@ MonoBehaviour:
   options:
   - Spanish
   - English
-  - Portiguese
-  - Germany
+  - Portuguese
 --- !u!1 &1337585417
 GameObject:
   m_ObjectHideFlags: 0
@@ -18993,7 +19011,6 @@ MonoBehaviour:
   textAfter: {fileID: 1790676465}
   options: 
   dateToStart: 1990
-  dateToEnd: 2023
 --- !u!1 &1822628942
 GameObject:
   m_ObjectHideFlags: 0

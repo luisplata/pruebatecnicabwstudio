@@ -32,4 +32,10 @@ public class SelectionOfOptions : ScreenPlay
         base.IsFinish();
         return _isFinished;
     }
+
+    public override void ResetData()
+    {
+        base.ResetData();
+        _isFinished = false;
+    }
 }

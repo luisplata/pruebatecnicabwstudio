@@ -43,4 +43,12 @@ public class SelectionOfProfileData : EvaluatorsWithButton
     {
         return $"{colorButton.GetData()},{inputField.text}";
     }
+
+    public override void ResetData()
+    {
+        base.ResetData();
+        inputField.text = "";
+        colorButton.ResetData();
+        _changeNickname = false;
+    }
 }
