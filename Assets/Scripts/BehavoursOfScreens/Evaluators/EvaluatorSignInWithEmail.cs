@@ -9,6 +9,7 @@ public class EvaluatorSignInWithEmail : Evaluators
     [SerializeField] private TMP_InputField emailInputField;
     [SerializeField] private TMP_InputField passwordInputField;
     [SerializeField] private Sprite showPassword, hidePassword;
+    [SerializeField] private ScreenPlayIdentity onFailLogin;
     private Image _imageShowHidePassword;
 
     public override void Config()
@@ -36,6 +37,8 @@ public class EvaluatorSignInWithEmail : Evaluators
             Debug.Log("Success Create User");
         },()=>
         {
+            _isFinished = true;
+            nextScreenPlay = onFailLogin;
             Debug.Log("Error Create User");
         });
     }

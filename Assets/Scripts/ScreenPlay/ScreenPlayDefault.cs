@@ -6,4 +6,5 @@ public class ScreenPlayDefault : ScreenPlay
     {
         Debug.Log($"Doing {gameObject.name}");
     }
+    
 }

@@ -24,7 +24,7 @@ public abstract class Evaluators : MonoBehaviour
         
     }
 
-    public void ResetData()
+    public virtual void ResetData()
     {
         _isFinished = false;
     }
