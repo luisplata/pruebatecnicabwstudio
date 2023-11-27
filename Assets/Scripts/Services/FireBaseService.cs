@@ -7,7 +7,8 @@ public class FireBaseService : ServiceCustom, IFireBaseService
 {
   private FirebaseApp _app;
   private Firebase.Auth.FirebaseAuth _auth;
-  private IAuthCustom _authCustom;
+  private IAuthCustom _authGoogle, _authEmailAndPassword;
+  private bool _useGoogle;
 
   protected override bool Validation()
   {
@@ -26,8 +27,8 @@ public class FireBaseService : ServiceCustom, IFireBaseService
       {
         _app = FirebaseApp.DefaultInstance;
         //strategy pattern
-        _authCustom = new AuthWithEmailAndPassword(_auth);
-        //_authCustom = new AuthWithGoogle(_auth, "531598773011-inhf44skdjt9nphjv5ghqtlafgdt57ri.apps.googleusercontent.com");
+        _authEmailAndPassword = new AuthWithEmailAndPassword(_auth);
+        _authGoogle = new AuthWithGoogle(_auth, "531598773011-inhf44skdjt9nphjv5ghqtlafgdt57ri.apps.googleusercontent.com");
       }
       else
       {
@@ -43,11 +44,27 @@ public class FireBaseService : ServiceCustom, IFireBaseService
 
   public void CreateUser(string user, string pass, Action onSuccess, Action onFail)
   {
-    _authCustom.CreateUser(user, pass, onSuccess, onFail);
+    if (_useGoogle)
+      _authGoogle.CreateUser(user, pass, onSuccess, onFail);
+    else
+      _authEmailAndPassword.CreateUser(user, pass, onSuccess, onFail);
   }
 
   public void Login(string user, string pass, Action onSuccess, Action onFail)
   {
-    _authCustom.Login(user, pass, onSuccess, onFail);
+    if (_useGoogle)
+      _authGoogle.Login(user, pass, onSuccess, onFail);
+    else
+      _authEmailAndPassword.Login(user, pass, onSuccess, onFail);
+  }
+
+  public void UseEmailAndPassword()
+  {
+    _useGoogle = false;
+  }
+
+  public void UseGoogle()
+  {
+    _useGoogle = true;    
   }
 }
